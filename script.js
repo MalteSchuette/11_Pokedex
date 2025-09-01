@@ -9,7 +9,7 @@ let detailedInfoJson = ""
 let deepestInfoJson = ""
 
 function loadingScreen() {
-    let contentRef = document.getElementById("main_content");
+    let contentRef = document.getElementById("card_content");
     contentRef.innerHTML = 
     `
         <div id="loading_screen">
@@ -21,12 +21,9 @@ function loadingScreen() {
 async function firstPokeData() {
     let firstFourty = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=40")
     pokeList = await firstFourty.json();
-    console.log(pokeList);
-
     let contentRef = document.getElementById("card_content")
     contentRef.innerHTML = "";
     for (let index = 0; index < pokeList.results.length; index++) {
-        
         let detailedInfoJson = await fetchPokeDetails(index)
         let deepestInfoJson = await getDeepestInfoJson()
         let sprite = detailedInfoJson.sprites.other["official-artwork"].front_default
@@ -71,6 +68,7 @@ function renderPokeCards(index, name, sprite, type) {
                     <h2> ${name} </h2>
                     <div class="poke_background">
                         <div class="type_background">
+                            <div class="type_${detailedInfoJson.types[0].type.name}"> </div>
                             <div class="type_${detailedInfoJson.types[0].type.name}"> </div>
                         </div>
                     </div>

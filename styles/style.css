@@ -190,95 +190,143 @@ header img {
 .type_normal {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #C6C6A7, #A8A77A);
+    background-image: url(/assets/img/bg_normal.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.type_fairy {
+    height: 320px;
+    width: 500px;
+    background-image: url(/assets/img/bg_normal.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_fire {
-    height: 320px;
+    height: 350px;
     width: 500px;
-    background: linear-gradient(135deg, #F5AC78, #EE8130);
+    background-image: url(/assets/img/bg_fire.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_water {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #8DB9F0, #6390F0);
+    background-image: url(/assets/img/bg_water.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_grass {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #9BDC6E, #7AC74C);
+    background-image: url(/assets/img/bg_grass.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_electric {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #FAE078, #F7D02C);
+    background-image: url(/assets/img/bg_electric.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_ice {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #BDECEC, #96D9D6);
+    background-image: url(/assets/img/bg_ice.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_fighting {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #E06A5F, #C22E28);
+    background-image: url(/assets/img/bg_fighting.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_poison {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #C183C1, #A33EA1);
+    background-image: url(/assets/img/bg_poison.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_ground {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #ECD9A3, #E2BF65);
-}
-
-.type_ground {
-    height: 320px;
-    width: 500px;
-    background: linear-gradient(135deg, #ECD9A3, #E2BF65);
+    background-image: url(/assets/img/bg_ground.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_flying {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #C6B7F5, #A98FF3);
+    background-image: url(/assets/img/bg_flying.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_psychic {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #FF9CCF, #F95587);
+    background-image: url(/assets/img/bg_psychic.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_bug {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #C6D16E, #A6B91A);
+    background-image: url(/assets/img/bg_bug.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_rock {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #D1C17D, #B6A136);
+    background-image: url(/assets/img/bg_rock.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_ghost {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #A292BC, #735797);
+    background-image: url(/assets/img/bg_ghost.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type_dragon {
     height: 320px;
     width: 500px;
-    background: linear-gradient(135deg, #A27DFA, #6F35FC);
+    background-image: url(/assets/img/bg_dragon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
