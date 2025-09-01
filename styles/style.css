@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
     margin:0;
 }
@@ -7,7 +11,6 @@ header {
     width: 100%;
     background-color: #F7F7F7;
     display: flex;
-    justify-content: center;
 }
 
 header img {
@@ -33,7 +36,14 @@ header img {
 }
 
 #card_content {
+    display: flex;
+    justify-content: center;
     flex: 1;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
 }
 
 #name_filter {
@@ -41,8 +51,11 @@ header img {
     margin-bottom: 8px;
     margin-left: 4px;
     margin-right: 4px;
-    width:auto;
+    width: calc(100% - 8px);
+    box-sizing: border-box;
 }
+
+
 
 #filter_div h2 {
     text-align: center;
@@ -52,7 +65,7 @@ header img {
 }
 
 .filter_name {
-    display: flex;
+    width: 100%;
 }
 
 #filter_div hr {
@@ -69,6 +82,7 @@ header img {
     display: flex;
     flex-wrap:wrap;
     gap: 10px 20px;
+    border: 2px solid gray;
 }
 
 #filter_typ label{
@@ -76,4 +90,195 @@ header img {
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+#filter_attack {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
+    width: calc(100% - 8px);
+    box-sizing: border-box;
+}
+
+#show_attacks {
+    background-color: aquamarine;
+    height: 300px;
+    width: auto;
+    border: 2px solid gray;
+    margin: 8px;
+    padding: 4px;
+    overflow-y: scroll;
+}
+
+#sort_Stats {
+    background-color: aquamarine;
+    margin: 8px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gray;
+}
+
+#loading_screen {
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.poke_card {
+    width: 300px;
+    height: 500px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.poke_background {
+    width: 200px;
+    height: 250px;
+    border: 2px solid grey ;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.type_background {
+    transform: rotate(38deg);
+    width: 400px;
+    height: 400px;
+    transform-origin: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.type_1 {
+    height: 320px;
+    width: 500px;
+    background-color: orange;
+}
+
+.type_2 {
+    height: 320px;
+    width: 500px;
+    background-color: green;
+}
+
+.poke_sprite_div {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 150px;
+    position: relative;
+    top: -130px;
+    
+}
+
+.poke_sprite {
+    max-width: 100%;
+    width: auto;
+    filter: drop-shadow(5px 3px 2px #2c2c2c);
+}
+
+.type_normal {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #C6C6A7, #A8A77A);
+}
+
+.type_fire {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #F5AC78, #EE8130);
+}
+
+.type_water {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #8DB9F0, #6390F0);
+}
+
+.type_grass {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #9BDC6E, #7AC74C);
+}
+
+.type_electric {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #FAE078, #F7D02C);
+}
+
+.type_ice {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #BDECEC, #96D9D6);
+}
+
+.type_fighting {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #E06A5F, #C22E28);
+}
+
+.type_poison {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #C183C1, #A33EA1);
+}
+
+.type_ground {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #ECD9A3, #E2BF65);
+}
+
+.type_ground {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #ECD9A3, #E2BF65);
+}
+
+.type_flying {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #C6B7F5, #A98FF3);
+}
+
+.type_psychic {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #FF9CCF, #F95587);
+}
+
+.type_bug {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #C6D16E, #A6B91A);
+}
+
+.type_rock {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #D1C17D, #B6A136);
+}
+
+.type_ghost {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #A292BC, #735797);
+}
+
+.type_dragon {
+    height: 320px;
+    width: 500px;
+    background: linear-gradient(135deg, #A27DFA, #6F35FC);
 }

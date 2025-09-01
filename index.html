@@ -7,8 +7,9 @@
     <link rel="shortcut icon" href="assets/icons/favicon_pokedex.png" type="image/x-icon">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/cards.css">
+    <script src="script.js"></script>
 </head>
-<body>
+<body onload="init()">
     <header>
         <div class="max_width">
             <img src="./assets/icons//Icon_Pokedex.png" alt="Bild eines Pokedex">
@@ -19,9 +20,10 @@
             <div id="filter_div">
                 <h2>Filter</h2>
                 <div class="filter_name">
-                    <input id="name_filter" type="text">
+                    <input id="name_filter" type="text" placeholder="Gib das gesuchte Pokemon ein...">
                 </div>
                 <hr>
+                <h2>Typen</h2>
                 <div id="filter_typ">
                     <label>
                         <input type="checkbox" name="Normal">
@@ -85,9 +87,43 @@
                     </label>
                 </div>
                 <hr>
-                <div id="filter_attacks"></div>
+                <h2>Attacken</h2>
+                <div id="filter_attacks">
+                    <input id="filter_attack" type="text" placeholder="Gib eine Attack ein...">
+                    <div id="show_attacks"></div>
+                </div>
+                <hr>
+                <h2>Statuswerte</h2>
+                <div id="sort_Stats">
+                    <label>
+                        <input type="checkbox" name="best_stats" id="sort_best_stats">
+                        Gesamte Werte  
+                    </label>
+                    <label>
+                        <input type="checkbox" name="KP" id="sort_hp">
+                        KP  
+                    </label>
+                    <label>
+                        <input type="checkbox" name="attack" id="sort_attack">
+                        Angriff  
+                    </label>
+                    <label>
+                        <input type="checkbox" name="defense" id="sort_defense">
+                        Verteidigung  
+                    </label>
+                    <label>
+                        <input type="checkbox" name="special" id="sort_special">
+                        Special  
+                    </label>
+                    <label>
+                        <input type="checkbox" name="initativ" id="sort_initative">
+                        Initiative  
+                    </label>
+                </div>
             </div>
-            <div id="card_content"></div>
+            <div id="card_content">
+                
+            </div>
         </div>
     </main>
     <footer>
