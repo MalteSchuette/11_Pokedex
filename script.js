@@ -1,9 +1,10 @@
-
 async function init() {
     loadingScreen();
     await pokeData(0, 40)
+    renderPokemon(0)
     removeLoadingScreen()
     await pokeData(40, 151)
+    renderPokemon(40)
 }
 
 let pokeListJson = ""
@@ -30,17 +31,25 @@ async function pokeData(start, end) {
 }
 
 async function fetchPokemon(pokeListJson, start) {
-    let contentRef = document.getElementById("card_content")
+    
     for (let index = start; index < pokeListJson.results.length; index++) {
         let detailedInfoJson = await fetchPokeDetails(index)
         let deepestInfoJson = await getDeepestInfoJson()
         let sprite = detailedInfoJson.sprites.other["official-artwork"].front_default
         let name = deepestInfoJson.names["5"].name
         let type = detailedInfoJson.types
-        
-        cards.push([index,name, sprite, type])
-        cards.sort()
-        // contentRef.innerHTML += renderPokeCards(index, name, sprite, type);
+        cards.push([index, name, sprite, type])
+    }
+}
+
+function renderPokemon(start) {
+    let contentRef = document.getElementById("card_content")
+    for (i = start; i< cards.length; i++) {
+        let index = cards[i][0]
+        let name = cards[i][1]
+        let sprite = cards[i][2]
+        let type = cards[i][3]
+        contentRef.innerHTML += getPokeHTML(index, name, sprite, type)
     }
 }
 
@@ -56,7 +65,9 @@ async function getDeepestInfoJson() {
     return deepestInfoJson
 }
 
-function renderPokeCards(index, name, sprite, type) {
+
+
+function getPokeHTML(index, name, sprite, type) {
     if (type.length == 2) {
         return  `
                 <div id="card_${index}" class="poke_card">
