@@ -6,10 +6,9 @@
     <title>Pokedex</title>
     <link rel="shortcut icon" href="assets/icons/favicon_pokedex.png" type="image/x-icon">
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/cards.css">
     <script src="script.js" defer></script>
 </head>
-<body onload="init()">
+<body id="body" class="loading" onload="init()">
     <header>
         <div class="max_width">
             <img src="./assets/icons//Icon_Pokedex.png" alt="Bild eines Pokedex">
@@ -121,10 +120,10 @@
                     </label>
                 </div>
             </div>
-            <div id="card_content">
-                
+            <div id="card_content">   
             </div>
         </div>
+        <div id="loading_screen"></div>
     </main>
     <footer>
 

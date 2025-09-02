@@ -6,6 +6,11 @@ body {
     margin:0;
 }
 
+.loading {
+    overflow: hidden;
+    height: 100vh;
+}
+
 header {
     height: 100px;
     width: 100%;
@@ -17,6 +22,10 @@ header img {
     max-height: 84px;
     width: auto;
     margin: 8px;
+}
+
+.d_none {
+    display: none;
 }
 
 .max_width {
@@ -33,6 +42,9 @@ header img {
     height: calc(100vh - 100px);
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 #card_content {
@@ -76,13 +88,17 @@ header img {
 }
 
 #filter_typ {
-    background-color: aquamarine;
-    margin: 8px;
+    background-color: #F7F7F7;
+    margin-left: 4px;
+    margin-right: 4px;
     padding: 4px;
     display: flex;
     flex-wrap:wrap;
     gap: 10px 20px;
     border: 2px solid gray;
+    border-radius: 8px;
+    width: calc(100% - 8px);
+    box-sizing: border-box;
 }
 
 #filter_typ label{
@@ -93,7 +109,7 @@ header img {
 }
 
 #filter_attack {
-    margin-top: 8px;
+    margin-left: 8px;
     margin-bottom: 8px;
     margin-left: 4px;
     margin-right: 4px;
@@ -102,30 +118,45 @@ header img {
 }
 
 #show_attacks {
-    background-color: aquamarine;
+    background-color: #F7F7F7;
     height: 300px;
     width: auto;
     border: 2px solid gray;
-    margin: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
     padding: 4px;
     overflow-y: scroll;
+    border-radius: 8px;
+    width: calc(100% - 8px);
+    box-sizing: border-box;
 }
 
 #sort_Stats {
-    background-color: aquamarine;
-    margin: 8px;
+    background-color: #F7F7F7;
+    margin-left: 4px;
+    margin-right: 4px;
     padding: 4px;
     display: flex;
     flex-direction: column;
     border: 2px solid gray;
+    border-radius: 8px;
+    width: calc(100% - 8px);
+    box-sizing: border-box;
 }
 
 #loading_screen {
-    height: calc(100vh - 100px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #F7F7F7;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
+    z-index: 999;
+    
 }
 
 .poke_card {
@@ -147,6 +178,7 @@ header img {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
 
 .type_background {
