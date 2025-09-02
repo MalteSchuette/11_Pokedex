@@ -160,9 +160,7 @@ header img {
 }
 
 .poke_card {
-    width: 300px;
-    height: 500px;
-    background-color: #f7f7f7;
+    width: 300px;    background-color: #f7f7f7;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -173,7 +171,7 @@ header img {
     width: 200px;
     height: 250px;
     border: 2px solid grey ;
-    border-radius: 16px;
+    border-radius: 16px 16px 0 0;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -209,8 +207,8 @@ header img {
     justify-content: center;
     width: 150px;
     position: relative;
-    top: -130px;
-    
+    top: -15px;
+    height: 0;
 }
 
 .poke_sprite {
@@ -361,4 +359,219 @@ header img {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.poke_type_bar {
+    height: 24px;
+    width: 200px;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    border-bottom: 2px solid gray;
+    overflow: hidden;
+    display: flex;
+}
+
+.bar_normal {
+    background-color: #a8a878;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_fairy {
+    background-color: #a8a878;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_fire {
+    background-color: #F08030;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_water {
+    background-color: #6890F0;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_grass {
+    background-color: #78C850;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_electric {
+    background-color: #F8D030;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_ice {
+    background-color: #98D8D8;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_fighting {
+    background-color: #C03028;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_poison {
+    background-color: #A040A0;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_ground {
+    background-color: #E2BF65;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_flying {
+    background-color: #A98FF0;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_psychic {
+    background-color: #F95587;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_bug {
+    background-color: #A6B91A;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_rock {
+    background-color: #B6A136;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_ghost {
+    background-color: #735797;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_dragon {
+    background-color: #6F35FC;
+    flex:1;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}
+
+.bar_steel {
+    display: none;
+}
+
+.poke_stats_window {
+    width: 200px;
+    border: 2px solid gray;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-radius: 0 0 16px 16px;
+}
+
+.all_stats {
+    display: flex;
+    justify-content: center;
+}
+
+.hp_bar {
+    height: 15px;
+    width: 100px;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.atk_bar {
+    height: 15px;
+    width: 80px;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.def_bar {
+    height: 15px;
+    width: 80px;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.sp_atk_bar {
+    height: 15px;
+    width: 80px;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.sp_def_bar {
+    height: 15px;
+    width: 80px;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.init_bar {
+    height: 15px;
+    width: 80px;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.tr1 {
+    width: 43px;
+    margin-right: 8px;
+}
+
+.tr2 {
+    background-color: lightgray;
+    border-radius: 8px;
+    height: 4px;
+    width: 100px;
+}
+
+.tr3 {
+    width: 30px;
 }

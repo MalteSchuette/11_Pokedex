@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body id="body" class="loading" onload="init()">
     <header>
         <div class="max_width">
@@ -25,63 +27,63 @@
                 <h2>Typen</h2>
                 <div id="filter_typ">
                     <label>
-                        <input type="checkbox" name="Normal">
-                        Normal  
+                        <input id="checkbox_normal" type="checkbox" name="Normal" onchange="toggleFilter(`normal`)">
+                        Normal
                     </label>
                     <label>
-                        <input type="checkbox" name="Feuer">
+                        <input id="checkbox_fire" type="checkbox" name="Feuer" onchange="toggleFilter(`fire`)">
                         Feuer
                     </label>
                     <label>
-                        <input type="checkbox" name="Wasser">
-                        Wasser    
+                        <input id="checkbox_water" type="checkbox" name="Wasser" onchange="toggleFilter(`water`)">
+                        Wasser
                     </label>
                     <label>
-                        <input type="checkbox" name="Pflanze">
+                        <input id="checkbox_grass" type="checkbox" name="Pflanze" onchange="toggleFilter(`grass`)">
                         Pflanze
                     </label>
                     <label>
-                        <input type="checkbox" name="Elektro">
+                        <input id="checkbox_electric" type="checkbox" name="Elektro" onchange="toggleFilter(`electric`)">
                         Elektro
                     </label>
                     <label>
-                        <input type="checkbox" name="Eis">
+                        <input id="checkbox_ice" type="checkbox" name="Eis" onchange="toggleFilter(`ice`)">
                         Eis
                     </label>
                     <label>
-                        <input type="checkbox" name="Kampf">
-                        Kampf 
+                        <input id="checkbox_fighting" type="checkbox" name="Kampf" onchange="toggleFilter(`fighting`)">
+                        Kampf
                     </label>
                     <label>
-                        <input type="checkbox" name="Gift">
+                        <input id="checkbox_poison" type="checkbox" name="Gift" onchange="toggleFilter(`poison`)">
                         Gift
                     </label>
                     <label>
-                        <input type="checkbox" name="Boden">
+                        <input id="checkbox_ground" type="checkbox" name="Boden" onchange="toggleFilter(`ground`)">
                         Boden
                     </label>
                     <label>
-                        <input type="checkbox" name="Flug">
+                        <input id="checkbox_flying" type="checkbox" name="Flug" onchange="toggleFilter(`flying`)">
                         Flug
                     </label>
                     <label>
-                    <input type="checkbox" name="Psycho"> 
+                        <input id="checkbox_psychic" type="checkbox" name="Psycho" onchange="toggleFilter(`psychic`)">
                         Psycho
                     </label>
                     <label>
-                        <input type="checkbox" name="Käfer">
-                        Käfer   
+                        <input id="checkbox_bug" type="checkbox" name="Käfer" onchange="toggleFilter(`bug`)">
+                        Käfer
                     </label>
                     <label>
-                        <input type="checkbox" name="Gestein">
-                        Gestein    
+                        <input id="checkbox_rock" type="checkbox" name="Gestein" onchange="toggleFilter(`rock`)">
+                        Gestein
                     </label>
                     <label>
-                        <input type="checkbox" name="Geist">
-                        Geist   
+                        <input id="checkbox_ghost" type="checkbox" name="Geist" onchange="toggleFilter(`ghost`)">
+                        Geist
                     </label>
                     <label>
-                        <input type="checkbox" name="Drache"> 
+                        <input id="checkbox_dragon" type="checkbox" name="Drache" onchange="toggleFilter(`dragon`)">
                         Drache
                     </label>
                 </div>
@@ -96,31 +98,31 @@
                 <div id="sort_Stats">
                     <label>
                         <input type="checkbox" name="best_stats" id="sort_best_stats">
-                        Gesamte Werte  
+                        Gesamte Werte
                     </label>
                     <label>
                         <input type="checkbox" name="KP" id="sort_hp">
-                        KP  
+                        KP
                     </label>
                     <label>
                         <input type="checkbox" name="attack" id="sort_attack">
-                        Angriff  
+                        Angriff
                     </label>
                     <label>
                         <input type="checkbox" name="defense" id="sort_defense">
-                        Verteidigung  
+                        Verteidigung
                     </label>
                     <label>
                         <input type="checkbox" name="special" id="sort_special">
-                        Special  
+                        Special
                     </label>
                     <label>
                         <input type="checkbox" name="initativ" id="sort_initative">
-                        Initiative  
+                        Initiative
                     </label>
                 </div>
             </div>
-            <div id="card_content">   
+            <div id="card_content">
             </div>
         </div>
         <div id="loading_screen"></div>
@@ -129,4 +131,5 @@
 
     </footer>
 </body>
+
 </html>
