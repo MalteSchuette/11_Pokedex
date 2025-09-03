@@ -24,10 +24,6 @@ header img {
     margin: 8px;
 }
 
-.d_none {
-    display: none;
-}
-
 .max_width {
     max-width: 1920px;
 }
@@ -98,7 +94,6 @@ header img {
     border: 2px solid gray;
     border-radius: 8px;
     width: calc(100% - 8px);
-    box-sizing: border-box;
 }
 
 #filter_typ label{
@@ -145,7 +140,7 @@ header img {
 }
 
 #loading_screen {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -160,11 +155,14 @@ header img {
 }
 
 .poke_card {
-    width: 300px;    background-color: #f7f7f7;
+    width: 300px;    
+    background-color: #f7f7f7;
     border-radius: 8px;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    padding-bottom: 68px;
+    justify-content: center;
+    align-items: center;
 }
 
 .poke_background {
@@ -205,7 +203,7 @@ header img {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    width: 150px;
+    width: 200px;
     position: relative;
     top: -15px;
     height: 0;
@@ -215,6 +213,21 @@ header img {
     max-width: 100%;
     width: auto;
     filter: drop-shadow(5px 3px 2px #2c2c2c);
+}
+
+.sprite_size_small {
+    height: 100px;
+    width: 100px;
+}
+
+.sprite_size_medium {
+    height: 150px;
+    width: 150px;
+}
+
+.sprite_size_big {
+    height: 200px;
+    width: 200px;
 }
 
 .type_normal {
@@ -574,4 +587,304 @@ header img {
 
 .tr3 {
     width: 30px;
+}
+
+.inner_card {
+    text-align: center;
+    cursor: pointer;
+    transition: scale 0.3s;
+}
+
+.inner_card:hover {
+    scale: 1.1
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.404);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.overlay_window {
+    width: 500px;
+    border: 4px solid gray;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+
+}
+
+.bg_overlay_normal {
+    background-image: url(/assets/img/bg_normal.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_fairy {
+    background-image: url(/assets/img/bg_normal.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_fire {
+    background-image: url(/assets/img/bg_fire.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_water {
+    background-image: url(/assets/img/bg_water.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_grass {
+    background-image: url(/assets/img/bg_grass.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;    
+}
+
+.bg_overlay_electric {
+    background-image: url(/assets/img/bg_electric.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_ice {
+    background-image: url(/assets/img/bg_ice.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_fighting {
+    background-image: url(/assets/img/bg_fighting.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_poison {
+    background-image: url(/assets/img/bg_poison.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_ground {
+    background-image: url(/assets/img/bg_ground.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_flying {
+    background-image: url(/assets/img/bg_flying.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_psychic {
+    background-image: url(/assets/img/bg_psychic.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_bug {
+    background-image: url(/assets/img/bg_bug.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_rock {
+    background-image: url(/assets/img/bg_rock.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_ghost {
+    background-image: url(/assets/img/bg_ghost.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_dragon {
+    background-image: url(/assets/img/bg_dragon.png);
+    background-size: cover;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.bg_overlay_steel {
+    display: none;
+}
+
+.upper_overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+}
+
+.upper_overlay h2 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: rgba(230, 230, 230, 0.692);
+    border-radius: 4px;
+}
+
+.detailed_info {
+    display: flex;
+    flex-direction: column;
+    background-color: #F7F7f7;
+    border-radius: 16px;
+    flex:1;
+}
+
+.detailed_info button{
+    cursor: pointer;
+    height: 40px;
+    flex: 1;
+    border-radius: 0;
+    border-bottom: none;
+    border: none;
+}
+
+#btn_1 {
+    border-radius: 16px 0 0 0;
+}
+
+#btn_3 {
+    border-radius: 0 16px 0 0;
+}
+
+.poke_sprite_overlay {
+    position: relative;
+    top: 30px;
+    max-height: 250px;
+    filter: drop-shadow(5px 3px 2px #2c2c2c);
+    pointer-events: none;
+}
+
+.overlay_buttons {
+    display: flex;
+}
+
+.info_window {
+    display: flex;
+
+}
+
+#btn_2:hover {
+    cursor: auto;
+    background-color: #E9E9ED;
+}
+
+.flavor_text_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+    padding: 8px;
+    border-right: 2px solid gray;
+    flex:1;
+}
+
+.ability_overlay {
+    flex: 1;
+}
+
+.d_none {
+    display: none;
+}
+
+#table_overlay {
+    width: 100%;
+    margin: 4px;
+}
+
+.tr1_overlay {
+    width: 40px;
+    margin-right: 8px;
+}
+
+.tr2_overlay {
+    background-color: lightgray;
+    border-radius: 8px;
+    height: 4px;
+    width: 100px;
+}
+
+.tr3_overlay {
+    width: 40px;
+    padding-left: 8px;
 }
