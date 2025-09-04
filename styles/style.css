@@ -16,6 +16,7 @@ header {
     width: 100%;
     background-color: #F7F7F7;
     display: flex;
+    justify-content: center;
 }
 
 header img {
@@ -25,22 +26,26 @@ header img {
 }
 
 .max_width {
+    width: 100%;
     max-width: 1920px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
 #main_content {
     display: flex;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+}
+
 #filter_div {
     background-color: rgb(141, 141, 165);
-    width: 250px;
-    height: calc(100vh - 100px);
     display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 0;
-    left: 0;
 }
 
 #card_content {
@@ -59,7 +64,8 @@ header img {
     margin-bottom: 8px;
     margin-left: 4px;
     margin-right: 4px;
-    width: calc(100% - 8px);
+    width: 300px;
+    font-size: 24px;
     box-sizing: border-box;
 }
 
@@ -72,10 +78,6 @@ header img {
     margin-bottom: 8px;
 }
 
-.filter_name {
-    width: 100%;
-}
-
 #filter_div hr {
     width: 80%;
     height: 3px;
@@ -84,22 +86,20 @@ header img {
 }
 
 #filter_typ {
-    background-color: #F7F7F7;
-    margin-left: 4px;
-    margin-right: 4px;
-    padding: 4px;
-    display: flex;
-    flex-wrap:wrap;
-    gap: 10px 20px;
+    display: grid; 
+    grid-template-rows: repeat(2,auto);
+    grid-auto-flow: column;
+    gap: 8px 16px;
     border: 2px solid gray;
+    padding: 4px;
+    height: 90px;
     border-radius: 8px;
-    width: calc(100% - 8px);
+    margin-top: 5px;
+    margin-right: 24px;
 }
 
-#filter_typ label{
+#filter_typ label {
     flex: 1 1 45%;
-    display: flex;
-    align-items: center;
     gap: 5px;
 }
 
