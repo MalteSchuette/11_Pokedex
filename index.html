@@ -16,76 +16,79 @@
         <div class="max_width">
             <img src="./assets/icons//Icon_Pokedex.png" alt="Bild eines Pokedex">
             <div class="filter_name">
-                <input id="name_filter" type="text" placeholder="Tippe einen Namen ein...">
+                <input id="name_filter" type="text" placeholder="Filter nach Namen..." oninput="nameFilter()">
             </div>
-            <div id="filter_typ">
-                <label>
-                    <input id="checkbox_normal" type="checkbox" name="Normal" onchange="toggleFilter(`normal`)">
-                    Normal
-                </label>
-                <label>
-                    <input id="checkbox_fire" type="checkbox" name="Feuer" onchange="toggleFilter(`fire`)">
-                    Feuer
-                </label>
-                <label>
-                    <input id="checkbox_water" type="checkbox" name="Wasser" onchange="toggleFilter(`water`)">
-                    Wasser
-                </label>
-                <label>
-                    <input id="checkbox_grass" type="checkbox" name="Pflanze" onchange="toggleFilter(`grass`)">
-                    Pflanze
-                </label>
-                <label>
-                    <input id="checkbox_electric" type="checkbox" name="Elektro" onchange="toggleFilter(`electric`)">
-                    Elektro
-                </label>
-                <label>
-                    <input id="checkbox_ice" type="checkbox" name="Eis" onchange="toggleFilter(`ice`)">
-                    Eis
-                </label>
-                <label>
-                    <input id="checkbox_fighting" type="checkbox" name="Kampf" onchange="toggleFilter(`fighting`)">
-                    Kampf
-                </label>
-                <label>
-                    <input id="checkbox_poison" type="checkbox" name="Gift" onchange="toggleFilter(`poison`)">
-                    Gift
-                </label>
-                <label>
-                    <input id="checkbox_ground" type="checkbox" name="Boden" onchange="toggleFilter(`ground`)">
-                    Boden
-                </label>
-                <label>
-                    <input id="checkbox_flying" type="checkbox" name="Flug" onchange="toggleFilter(`flying`)">
-                    Flug
-                </label>
-                <label>
-                    <input id="checkbox_psychic" type="checkbox" name="Psycho" onchange="toggleFilter(`psychic`)">
-                    Psycho
-                </label>
-                <label>
-                    <input id="checkbox_bug" type="checkbox" name="Käfer" onchange="toggleFilter(`bug`)">
-                    Käfer
-                </label>
-                <label>
-                    <input id="checkbox_rock" type="checkbox" name="Gestein" onchange="toggleFilter(`rock`)">
-                    Gestein
-                </label>
-                <label>
-                    <input id="checkbox_ghost" type="checkbox" name="Geist" onchange="toggleFilter(`ghost`)">
-                    Geist
-                </label>
-                <label>
-                    <input id="checkbox_dragon" type="checkbox" name="Drache" onchange="toggleFilter(`dragon`)">
-                    Drache
-                </label>
+            <div class="filter_typen_div">
+                <h3>Filter nach Typ</h3>
+                <div id="filter_typ">
+                    <label>
+                        <input id="checkbox_normal" type="checkbox" name="Normal" onchange="toggleFilter(`normal`)">
+                        Normal
+                    </label>
+                    <label>
+                        <input id="checkbox_fire" type="checkbox" name="Feuer" onchange="toggleFilter(`fire`)">
+                        Feuer
+                    </label>
+                    <label>
+                        <input id="checkbox_water" type="checkbox" name="Wasser" onchange="toggleFilter(`water`)">
+                        Wasser
+                    </label>
+                    <label>
+                        <input id="checkbox_grass" type="checkbox" name="Pflanze" onchange="toggleFilter(`grass`)">
+                        Pflanze
+                    </label>
+                    <label>
+                        <input id="checkbox_electric" type="checkbox" name="Elektro"
+                            onchange="toggleFilter(`electric`)">
+                        Elektro
+                    </label>
+                    <label>
+                        <input id="checkbox_ice" type="checkbox" name="Eis" onchange="toggleFilter(`ice`)">
+                        Eis
+                    </label>
+                    <label>
+                        <input id="checkbox_fighting" type="checkbox" name="Kampf" onchange="toggleFilter(`fighting`)">
+                        Kampf
+                    </label>
+                    <label>
+                        <input id="checkbox_poison" type="checkbox" name="Gift" onchange="toggleFilter(`poison`)">
+                        Gift
+                    </label>
+                    <label>
+                        <input id="checkbox_ground" type="checkbox" name="Boden" onchange="toggleFilter(`ground`)">
+                        Boden
+                    </label>
+                    <label>
+                        <input id="checkbox_flying" type="checkbox" name="Flug" onchange="toggleFilter(`flying`)">
+                        Flug
+                    </label>
+                    <label>
+                        <input id="checkbox_psychic" type="checkbox" name="Psycho" onchange="toggleFilter(`psychic`)">
+                        Psycho
+                    </label>
+                    <label>
+                        <input id="checkbox_bug" type="checkbox" name="Käfer" onchange="toggleFilter(`bug`)">
+                        Käfer
+                    </label>
+                    <label>
+                        <input id="checkbox_rock" type="checkbox" name="Gestein" onchange="toggleFilter(`rock`)">
+                        Gestein
+                    </label>
+                    <label>
+                        <input id="checkbox_ghost" type="checkbox" name="Geist" onchange="toggleFilter(`ghost`)">
+                        Geist
+                    </label>
+                    <label>
+                        <input id="checkbox_dragon" type="checkbox" name="Drache" onchange="toggleFilter(`dragon`)">
+                        Drache
+                    </label>
+                </div>
             </div>
         </div>
     </header>
     <main>
         <div id="overlay" class="overlay d_none" onclick="toggleOverlay()">
-            <div id="overlay_window" class="overlay_window" onclick="event.stopPropagation()">
-            </div>
+            <div id="overlay_window" class="overlay_window" onclick="event.stopPropagation()"></div>
         </div>
         <div id="main_content" class="max_width">
 
@@ -95,10 +98,9 @@
         <div id="loading_screen"></div>
     </main>
     <footer>
-
+        <div class="max_width">
+        </div>
     </footer>
 </body>
 
 </html>
-
-<button></button><button></button><button></button>

@@ -1,18 +1,22 @@
-function getPokeHTML(index, name, sprite, type, stats, size) {
+function getPokeHTML(index, name, sprite, type, stats, size, type1, type2) {
     if (type.length == 2) {
         return  `
-                <div class="poke_card">
-                    <h2> #${index +1} - ${name} </h2>
-                    <div id="card_${index}" class="inner_card" onclick="toggleOverlay(this)">                        
+                
+                    
+                    <div id="card_${index}" class="inner_card" onclick="toggleOverlay(this)">
+                        <div class="h2_card">    
+                            <h2> #${index +1} - ${name} </h2>
+                        </div>                           
                         <div class="poke_background">
+                        
                             <div class="type_background">
                                 <div class="type_${type[0].type.name}"> </div>
                                 <div class="type_${type[1].type.name}"> </div>
                             </div>
                         </div>
                         <div class="poke_type_bar">
-                            <div class="bar_${type[0].type.name}">${type[0].type.name}</div>
-                            <div class="bar_${type[1].type.name}">${type[1].type.name}</div>
+                            <div class="bar_${type[0].type.name}">${type1}</div>
+                            <div class="bar_${type[1].type.name}">${type2}</div>
                         </div>
                         <div class="poke_sprite_div">
                             <img class="poke_sprite ${size}" src="${sprite}" alt="Bild von ${name}">
@@ -52,14 +56,15 @@ function getPokeHTML(index, name, sprite, type, stats, size) {
                             </table>
                         </div>
                     </div>                   
-                </div>
+                
                 `
     }
     else {
         return `
-                <div class="poke_card">
-                    <h2> #${index +1} - ${name} </h2>
-                    <div id="card_${index}" class="inner_card" onclick="toggleOverlay(this)">                        
+                    <div id="card_${index}" class="inner_card" onclick="toggleOverlay(this)">
+                        <div class="h2_card">    
+                            <h2> #${index +1} - ${name} </h2>
+                        </div>                
                         <div class="poke_background">
                             <div class="type_background">
                                 <div class="type_${type[0].type.name}"> </div>
@@ -67,7 +72,7 @@ function getPokeHTML(index, name, sprite, type, stats, size) {
                             </div>
                         </div>
                         <div class="poke_type_bar">
-                            <div class="bar_${type[0].type.name}">${type[0].type.name}</div>
+                            <div class="bar_${type[0].type.name}">${type1}</div>
                         </div>
                         <div class="poke_sprite_div">
                             <img class="poke_sprite ${size}" src="${sprite}" alt="Bild von ${name}">
@@ -106,8 +111,7 @@ function getPokeHTML(index, name, sprite, type, stats, size) {
                                 </tr>
                             </table>
                         </div>    
-                    </div>   
-                </div>
+                    </div>                
                 `    
     }   
 }
@@ -120,8 +124,16 @@ function getOverlayWindowHTML(indexNumber, name, sprite, type, stats, flavor) {
                         <img class="poke_sprite_overlay" src="${sprite}" alt="Bild von ${name}">
                     </div>
                     <div class="detailed_info">
+                        <div class="arrow_div">
+                            <div id="arrow_left">
+                                <img src="./assets/icons/arrow_back_ios_new_32dp_F7F7F7_FILL0_wght400_GRAD0_opsz40.png " alt="Icon Pfeil nach links" onclick="renderOverlayWindow(${indexNumber -1})">
+                            </div>
+                            <div id="arrow_right"> 
+                                <img src="./assets/icons/arrow_forward_ios_32dp_F7F7F7_FILL0_wght400_GRAD0_opsz40.png" alt="Icon Pfeil nach rechts" onclick="renderOverlayWindow(${indexNumber +1})">
+                            </div>
+                        </div>
                         <div class="overlay_buttons">                        
-                        <button id="btn_1">Allgemeine Info</button><button id="btn_2"></button><button id="btn_3">Attacken</button>
+                        <button id="btn_1">Allgemeine Info</button><button id="btn_3"><audio controls> <source src="${cards[indexNumber][7]}" type="audio/ogg"></audio></button>
                         </div>
                         <div class="info_window">
                             <div class="flavor_text_div"><p>${flavor}</p></div>

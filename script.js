@@ -12,15 +12,12 @@ let pokeList = ""
 let cards = []
 let detailedInfoJson = ""
 let flavorTextJson =""
-
+let currentNameSearch = ""
 let filter = []
 
 function loadingScreen() {
     let contentRef = document.getElementById("loading_screen");
-    contentRef.innerHTML = 
-    `
-        <img src="./assets/icons/favicon_pokedex.png" alt="">
-    `
+    contentRef.innerHTML =  ` <img id="loading_ball" src="./assets/icons/favicon_pokedex.png" alt="Drehender Pokeball">   `
 }
 
 function removeLoadingScreen() {
@@ -34,6 +31,7 @@ async function pokeData(start, end) {
     await fetchPokemon(pokeListJson, start)
 }
 
+// Version 1: 
 async function fetchPokemon(pokeListJson, start) {
     for (let index = start; index < pokeListJson.results.length; index++) {
         let detailedInfoJson = await fetchPokeDetails(index)
@@ -41,11 +39,74 @@ async function fetchPokemon(pokeListJson, start) {
         let sprite = detailedInfoJson.sprites.other["official-artwork"].front_default
         let name = germanName.names["5"].name
         let type = detailedInfoJson.types
-        let stats = detailedInfoJson.stats
-        let size = detailedInfoJson.height
-        let flavor = germanName.flavor_text_entries[33].flavor_text
-        cards.push([index, name, sprite, type, stats, size, flavor,])
+        let pokeCry = detailedInfoJson.cries.latest
+        let germanTypeOne = getGermanType(type[0].type.name);
+        if (type.length == 2) {
+            let germanTypeTwo = getGermanType(type[1].type.name)
+            let stats = detailedInfoJson.stats
+            let size = detailedInfoJson.height
+            let flavor = germanName.flavor_text_entries[33].flavor_text
+            cards.push([index, name, sprite, type, stats, size, flavor, pokeCry, germanTypeOne, germanTypeTwo, ])
+        }
+        else {
+            let stats = detailedInfoJson.stats
+            let size = detailedInfoJson.height
+            let flavor = germanName.flavor_text_entries[33].flavor_text
+            cards.push([index, name, sprite, type, stats, size, flavor, pokeCry, germanTypeOne,])
+        }
     }
+}
+
+function getGermanType(type) {
+    if (type == "normal" || type == "fairy") {
+        return "Normal"
+    }
+    else if (type == "fire") {
+        return "Feuer"
+    }
+    else if (type == "water") {
+        return "Wasser"
+    }
+    else if (type == "grass") {
+        return "Pflanze"
+    }
+    else if (type == "electric") {
+        return "Elektro"
+    }
+    else if (type == "ice") {
+        return "Eis"
+    }
+    else if (type == "fighting") {
+        return "Kampf"
+    }
+    else if (type == "poison") {
+        return "Gift"
+    }
+    else if (type == "ground") {
+        return "Boden"
+    }
+    else if (type == "flying") {
+        return "Flug"
+    }
+    else if (type == "psychic") {
+        return "Psycho"
+    }
+    else if (type == "bug") {
+        return "Käfer"
+    }
+    else if (type == "rock") {
+        return "Gestein"
+    }
+    else if (type == "ghost") {
+        return "Geist"
+    }
+    else if (type == "dragon") {
+        return "Drache"
+    }
+    else if (type == "steel") {
+        return "Elektro"
+    }
+
 }
 
 async function fetchPokeDetails(index) {
@@ -60,23 +121,66 @@ async function fetchDeepestInfoJson() {
     return germanName
 }
 
+// version 2:
+
+// async function fetchPokemon(pokeListJson, start) {
+//     let cardsPromise = pokeListJson.results.map(async(singlePkm, index) => {
+//         let detailedInfo = await fetch(pokeListJson.results[index].url);
+//         detailedInfoJson = await detailedInfo.json();
+//         let deepestInfo = await fetch(detailedInfoJson.species.url);
+//         let germanName = await deepestInfo.json()
+//         return[
+//             detailedInfoJson.sprites.other["official-artwork"].front_default,
+//             germanName.names["5"].name,
+//             detailedInfoJson.types,
+//             detailedInfoJson.stats,
+//             detailedInfoJson.height,
+//             germanName.flavor_text_entries[33].flavor_text,
+//         ];
+//     });
+//     cards = await Promise.all(cardsPromise);
+//     }
+
+
 function renderPokemon(start, filter) {
     let contentRef = document.getElementById("card_content")
-    for (i = start; i< cards.length; i++) {
+    for (let i = start; i< cards.length; i++) {
         let index = cards[i][0]
         let name = cards[i][1]
-        let sprite = cards[i][2]
-        let type = cards[i][3]
-        let stats = cards[i][4]
-        let size = cards[i][5]
-        size = determinSpriteSize(size)
-        if (!filter || filter.includes(type[0].type.name) || filter.includes(type[1]?.type.name)) {
-            contentRef.innerHTML += getPokeHTML(index, name, sprite, type, stats, size)
+        if (name.toLowerCase().includes(currentNameSearch.toLowerCase()) || currentNameSearch == "") {
+            let sprite = cards[i][2]
+            let pokeCry = cards[i][7]
+            let type = cards[i][3]
+            if (!filter || filter.length === 0 || filter.includes(type[0].type.name) || filter.includes(type[1]?.type.name)) {
+                let stats = cards[i][4]
+                let type1 = cards[i][8]
+                if (cards[i].length == 7) {
+                    let size = cards[i][5]
+                    size = determinSpriteSize(size)
+                    contentRef.innerHTML += getPokeHTML(index, name, sprite, type, stats, size, type1,)
+                }
+                else {
+                    let type2 = cards[i][9]
+                    let size = cards[i][5]
+                    size = determinSpriteSize(size)
+                    contentRef.innerHTML += getPokeHTML(index, name, sprite, type, stats, size, type1, type2)
+                }
+            }
+            else {
+                continue
+            }
         }
         else {
             continue
         }
     }
+}
+
+
+function nameFilter() {
+    currentNameSearch = document.getElementById("name_filter").value
+    document.getElementById("card_content").innerHTML = ""
+    renderPokemon(0, filter)
 }
 
 function determinSpriteSize(size) {
@@ -121,6 +225,12 @@ function toggleOverlay(element) {
 }
 
 function renderOverlayWindow(index) {
+    if (index == -1) {
+        index = 150
+    }
+    if (index == 151) {
+        index = 0
+    }
     contentRef = document.getElementById("overlay_window")
     contentRef.innerHTML = ""
         let indexNumber = cards[index][0]
@@ -129,7 +239,5 @@ function renderOverlayWindow(index) {
         let type = cards[index][3][0].type.name
         let stats = cards[index][4]
         let flavor = cards[index][6]
-
-
     contentRef.innerHTML += getOverlayWindowHTML(indexNumber, name, sprite, type, stats, flavor)
 }

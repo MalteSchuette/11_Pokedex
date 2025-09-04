@@ -6,17 +6,43 @@ body {
     margin:0;
 }
 
+footer {
+    height: 100px;
+    background-color: #2c2c2c;
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+footer img {
+    max-height: 90px;
+}
+
 .loading {
     overflow: hidden;
     height: 100vh;
 }
 
 header {
-    height: 100px;
+    height: 120px;
     width: 100%;
     background-color: #F7F7F7;
     display: flex;
     justify-content: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    border-bottom: 2px solid #2c2c2c;
+    filter: drop-shadow(5px 3px 2px #979494);
+}
+
+.h2_card {
+    position: relative;
+    top: 70px;
+    background: linear-gradient(white, lightgray);
+    z-index: 2;
+    align-self: center;
 }
 
 header img {
@@ -31,7 +57,6 @@ header img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 #main_content {
@@ -41,6 +66,9 @@ header img {
 main {
     display: flex;
     justify-content: center;
+    background-image: url(../assets/img/pkm_hintergrund.png);
+    background-size: contain;
+
 }
 
 #filter_div {
@@ -69,7 +97,20 @@ main {
     box-sizing: border-box;
 }
 
+h3 {
+    margin-bottom: 8px;
+    margin-top: 4px;
+}
 
+.filter_typen_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid gray;
+    border-radius: 8px;
+    margin: 8px;
+
+}
 
 #filter_div h2 {
     text-align: center;
@@ -90,12 +131,9 @@ main {
     grid-template-rows: repeat(2,auto);
     grid-auto-flow: column;
     gap: 8px 16px;
-    border: 2px solid gray;
     padding: 4px;
-    height: 90px;
     border-radius: 8px;
     margin-top: 5px;
-    margin-right: 24px;
 }
 
 #filter_typ label {
@@ -151,6 +189,14 @@ main {
     align-items: center;
     flex: 1;
     z-index: 999;
+}
+
+#loading_ball {
+    animation: mymove 3s infinite ease-in-out;
+}
+
+@keyframes mymove {
+    100% {transform: rotate(360deg);}
     
 }
 
@@ -233,7 +279,7 @@ main {
 .type_normal {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_normal.png);
+    background-image: url(../assets/img/bg_normal.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -242,7 +288,7 @@ main {
 .type_fairy {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_normal.png);
+    background-image: url(../assets/img/bg_normal.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -251,7 +297,7 @@ main {
 .type_fire {
     height: 350px;
     width: 500px;
-    background-image: url(/assets/img/bg_fire.png);
+    background-image: url(../assets/img/bg_fire.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -260,7 +306,7 @@ main {
 .type_water {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_water.png);
+    background-image: url(../assets/img/bg_water.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -269,7 +315,7 @@ main {
 .type_grass {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_grass.png);
+    background-image: url(../assets/img/bg_grass.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -278,7 +324,7 @@ main {
 .type_electric {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_electric.png);
+    background-image: url(../assets/img/bg_electric.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -287,7 +333,7 @@ main {
 .type_ice {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_ice.png);
+    background-image: url(../assets/img/bg_ice.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -296,7 +342,7 @@ main {
 .type_fighting {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_fighting.png);
+    background-image: url(../assets/img/bg_fighting.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -305,7 +351,7 @@ main {
 .type_poison {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_poison.png);
+    background-image: url(../assets/img/bg_poison.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -314,7 +360,7 @@ main {
 .type_ground {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_ground.png);
+    background-image: url(../assets/img/bg_ground.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -323,7 +369,7 @@ main {
 .type_flying {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_flying.png);
+    background-image: url(../assets/img/bg_flying.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -332,7 +378,7 @@ main {
 .type_psychic {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_psychic.png);
+    background-image: url(../assets/img/bg_psychic.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -341,7 +387,7 @@ main {
 .type_bug {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_bug.png);
+    background-image: url(../assets/img/bg_bug.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -350,7 +396,7 @@ main {
 .type_rock {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_rock.png);
+    background-image: url(../assets/img/bg_rock.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -359,7 +405,7 @@ main {
 .type_ghost {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_ghost.png);
+    background-image: url(../assets/img/bg_ghost.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -368,7 +414,7 @@ main {
 .type_dragon {
     height: 320px;
     width: 500px;
-    background-image: url(/assets/img/bg_dragon.png);
+    background-image: url(../assets/img/bg_dragon.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -519,11 +565,13 @@ main {
 .poke_stats_window {
     width: 200px;
     border: 2px solid gray;
+    border-top: none;
     padding: 4px;
     display: flex;
     flex-direction: column;
     flex: 1;
     border-radius: 0 0 16px 16px;
+    background-color: #F7F7F7;
 }
 
 .all_stats {
@@ -593,6 +641,28 @@ main {
     text-align: center;
     cursor: pointer;
     transition: scale 0.3s;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.arrow_div {
+    height: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.videocontrols {
+border-radius: 16px;
+}
+
+#arrow_left {
+    position: relative;
+    left: -50px;
+}
+
+#arrow_right {
+    position: relative;
+    left: 50px;    
 }
 
 .inner_card:hover {
@@ -609,7 +679,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 10;
 }
 
 .overlay_window {
@@ -618,7 +688,7 @@ main {
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    z-index: 2;
+    z-index: 11;
 
 }
 
@@ -633,7 +703,7 @@ main {
 }
 
 .bg_overlay_fairy {
-    background-image: url(/assets/img/bg_normal.png);
+    background-image: url(../assets/img/bg_normal.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -643,7 +713,7 @@ main {
 }
 
 .bg_overlay_fire {
-    background-image: url(/assets/img/bg_fire.png);
+    background-image: url(../assets/img/bg_fire.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -653,7 +723,7 @@ main {
 }
 
 .bg_overlay_water {
-    background-image: url(/assets/img/bg_water.png);
+    background-image: url(../assets/img/bg_water.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -663,7 +733,7 @@ main {
 }
 
 .bg_overlay_grass {
-    background-image: url(/assets/img/bg_grass.png);
+    background-image: url(../assets/img/bg_grass.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -673,7 +743,7 @@ main {
 }
 
 .bg_overlay_electric {
-    background-image: url(/assets/img/bg_electric.png);
+    background-image: url(../assets/img/bg_electric.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -683,7 +753,7 @@ main {
 }
 
 .bg_overlay_ice {
-    background-image: url(/assets/img/bg_ice.png);
+    background-image: url(../assets/img/bg_ice.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -693,7 +763,7 @@ main {
 }
 
 .bg_overlay_fighting {
-    background-image: url(/assets/img/bg_fighting.png);
+    background-image: url(../assets/img/bg_fighting.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -703,7 +773,7 @@ main {
 }
 
 .bg_overlay_poison {
-    background-image: url(/assets/img/bg_poison.png);
+    background-image: url(../assets/img/bg_poison.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -713,7 +783,7 @@ main {
 }
 
 .bg_overlay_ground {
-    background-image: url(/assets/img/bg_ground.png);
+    background-image: url(../assets/img/bg_ground.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -723,7 +793,7 @@ main {
 }
 
 .bg_overlay_flying {
-    background-image: url(/assets/img/bg_flying.png);
+    background-image: url(../assets/img/bg_flying.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -733,7 +803,7 @@ main {
 }
 
 .bg_overlay_psychic {
-    background-image: url(/assets/img/bg_psychic.png);
+    background-image: url(../assets/img/bg_psychic.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -743,7 +813,7 @@ main {
 }
 
 .bg_overlay_bug {
-    background-image: url(/assets/img/bg_bug.png);
+    background-image: url(../assets/img/bg_bug.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -753,7 +823,7 @@ main {
 }
 
 .bg_overlay_rock {
-    background-image: url(/assets/img/bg_rock.png);
+    background-image: url(../assets/img/bg_rock.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -763,7 +833,7 @@ main {
 }
 
 .bg_overlay_ghost {
-    background-image: url(/assets/img/bg_ghost.png);
+    background-image: url(../assets/img/bg_ghost.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -773,7 +843,7 @@ main {
 }
 
 .bg_overlay_dragon {
-    background-image: url(/assets/img/bg_dragon.png);
+    background-image: url(../assets/img/bg_dragon.png);
     background-size: cover;
     width:100%;
     height: 100%;
@@ -842,6 +912,11 @@ main {
 .info_window {
     display: flex;
 
+}
+
+#btn_1:hover {
+    cursor: auto;
+    background-color: #E9E9ED;
 }
 
 #btn_2:hover {
