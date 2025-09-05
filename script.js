@@ -5,6 +5,7 @@ async function init() {
     removeLoadingScreen()
     await pokeData(40, 151)
     renderPokemon(40)
+    enableFilter()
 }
 
 let pokeListJson = ""
@@ -176,9 +177,35 @@ function renderPokemon(start, filter) {
     }
 }
 
+function enableFilter() {
+    document.getElementById("name_filter").removeAttribute("disabled")
+    document.getElementById("responsive_filter_button").removeAttribute("disabled")
+    document.getElementById("checkbox_normal").removeAttribute("disabled")
+    document.getElementById("checkbox_fire").removeAttribute("disabled")
+    document.getElementById("checkbox_water").removeAttribute("disabled")
+    document.getElementById("checkbox_grass").removeAttribute("disabled")
+    document.getElementById("checkbox_electric").removeAttribute("disabled")
+    document.getElementById("checkbox_ice").removeAttribute("disabled")
+    document.getElementById("checkbox_fighting").removeAttribute("disabled")
+    document.getElementById("checkbox_poison").removeAttribute("disabled")
+    document.getElementById("checkbox_ground").removeAttribute("disabled")
+    document.getElementById("checkbox_flying").removeAttribute("disabled")
+    document.getElementById("checkbox_psychic").removeAttribute("disabled")
+    document.getElementById("checkbox_bug").removeAttribute("disabled")
+    document.getElementById("checkbox_rock").removeAttribute("disabled")
+    document.getElementById("checkbox_ghost").removeAttribute("disabled")
+    document.getElementById("checkbox_dragon").removeAttribute("disabled")
+
+
+}
 
 function nameFilter() {
-    currentNameSearch = document.getElementById("name_filter").value
+    if (document.documentElement.clientWidth > 1275) {
+        currentNameSearch = document.getElementById("name_filter").value
+    }
+    else {
+        currentNameSearch = document.getElementById("name_filter_responsive").value
+    }
     document.getElementById("card_content").innerHTML = ""
     renderPokemon(0, filter)
 }
@@ -196,7 +223,13 @@ function determinSpriteSize(size) {
 }
 
 function toggleFilter(type) {
-    status_filter = document.getElementById(`checkbox_${type}`).checked;
+
+    if (document.documentElement.clientWidth > 1275) {
+        status_filter = document.getElementById(`checkbox_${type}`).checked;
+    }
+    else {
+        status_filter = document.getElementById(`checkbox_${type}_responsive`).checked;
+    }
     
     if (!status_filter) {
         let index = filter.indexOf(type[1].name);
@@ -240,4 +273,14 @@ function renderOverlayWindow(index) {
         let stats = cards[index][4]
         let flavor = cards[index][6]
     contentRef.innerHTML += getOverlayWindowHTML(indexNumber, name, sprite, type, stats, flavor)
+}
+
+function toggleFilterMenu() {
+    document.getElementById("responsive_filter_div").classList.toggle("d_none")
+}
+
+function playCry(indexNumber) {
+    let audio = document.getElementById(`cry_${indexNumber}`);
+    audio.currentTime = 0;
+    audio.play();
 }

@@ -133,7 +133,8 @@ function getOverlayWindowHTML(indexNumber, name, sprite, type, stats, flavor) {
                             </div>
                         </div>
                         <div class="overlay_buttons">                        
-                        <button id="btn_1">Allgemeine Info</button><button id="btn_3"><audio controls> <source src="${cards[indexNumber][7]}" type="audio/ogg"></audio></button>
+                        <button id="btn_1">Allgemeine Info</button><button id="btn_3" onclick="playCry(${indexNumber})">Ruf abspielen</button><audio id="cry_${indexNumber}" src="${cards[indexNumber][7]}"></audio>
+                        
                         </div>
                         <div class="info_window">
                             <div class="flavor_text_div"><p>${flavor}</p></div>
