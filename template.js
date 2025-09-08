@@ -121,6 +121,7 @@ function getOverlayWindowHTML(indexNumber, name, sprite, type, stats, flavor) {
                 <div class="bg_overlay_${type}">
                     <div class="upper_overlay">
                         <h2>#${indexNumber +1} -${name}</h2>
+                        <button id="close_overlay_button" onclick="toggleOverlay()">x</button>
                         <img class="poke_sprite_overlay" src="${sprite}" alt="Bild von ${name}">
                     </div>
                     <div class="detailed_info">

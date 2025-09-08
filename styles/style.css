@@ -66,7 +66,7 @@ header img {
 main {
     display: flex;
     justify-content: center;
-    background-image: url(../assets/img/pkm_hintergrund.png);
+    background-image: url(../assets/img/main_background.png);
     background-size: contain;
 
 }
@@ -888,6 +888,11 @@ border-radius: 16px;
     border: none;
 }
 
+..detailed_info button:hover {
+    background-color: gray;
+    scale: 1.1;
+}
+
 #btn_1 {
     border-radius: 16px 0 0 0;
 }
@@ -976,7 +981,7 @@ border-radius: 16px;
 .responsive_filter_div {
     position: absolute;
     background-color: white;
-    left: 0;
+    right: 0;
     top: 120px;
     padding: 16px;
     flex-direction: column;
@@ -990,6 +995,18 @@ border-radius: 16px;
     padding: 4px;
     border-radius: 8px;
     margin-top: 5px;
+}
+
+#close_overlay_button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    position: relative;
+    left: 220px;
+    bottom: 50px;
 }
 
 @media (max-width: 1275px) {
@@ -1009,6 +1026,35 @@ border-radius: 16px;
         display: grid;
     }
 }
+
+@media (max-width: 620px) {
+    #arrow_right {
+        left: 0;
+        bottom: 70px;
+    }
+
+    #arrow_left {
+        left: 0;
+        bottom: 70px;
+    }
+
+    #loading_ball {
+        scale: 0.6;
+    }
+}
+
+@media (max-width: 480px) {
+    #close_overlay_button {
+    left: 170px;
+    }
+}
+
+@media (max-width: 380px) {
+    #close_overlay_button {
+    left: 130px;
+    }
+}
+
 
 .d_none {
     display: none;
