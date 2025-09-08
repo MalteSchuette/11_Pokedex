@@ -3,9 +3,6 @@ async function init() {
     await pokeData(0, 40)
     renderPokemon(0)
     removeLoadingScreen()
-    await pokeData(40, 151)
-    renderPokemon(40)
-    enableFilter()
 }
 
 let pokeListJson = ""
@@ -26,34 +23,31 @@ function removeLoadingScreen() {
     document.getElementById("loading_screen").style.display = "none";
 }
 
-async function pokeData(start, end) {
-    let pokeList = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${end}`)
+async function pokeData(offset, limit) {
+    let pokeList = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
     pokeListJson = await pokeList.json();
-    await fetchPokemon(pokeListJson, start)
+    await fetchPokemon(pokeListJson);
 }
 
-// Version 1: 
-async function fetchPokemon(pokeListJson, start) {
-    for (let index = start; index < pokeListJson.results.length; index++) {
-        let detailedInfoJson = await fetchPokeDetails(index)
-        let germanName = await fetchDeepestInfoJson(index)
-        let sprite = detailedInfoJson.sprites.other["official-artwork"].front_default
-        let name = germanName.names["5"].name
-        let type = detailedInfoJson.types
-        let pokeCry = detailedInfoJson.cries.latest
+async function fetchPokemon(pokeListJson) {
+    for (let i = 0; i < pokeListJson.results.length; i++) {
+        let detailedInfoJson = await fetchPokeDetailsFromUrl(pokeListJson.results[i].url);
+        let germanName = await fetchDeepestInfoJson();
+        
+        let sprite = detailedInfoJson.sprites.other["official-artwork"].front_default;
+        let name = germanName.names["5"].name;
+        let type = detailedInfoJson.types;
+        let pokeCry = detailedInfoJson.cries.latest;
+        let stats = detailedInfoJson.stats;
+        let size = detailedInfoJson.height;
+        let flavor = getGerFlavorText(germanName);
         let germanTypeOne = getGermanType(type[0].type.name);
-        if (type.length == 2) {
-            let germanTypeTwo = getGermanType(type[1].type.name)
-            let stats = detailedInfoJson.stats
-            let size = detailedInfoJson.height
-            let flavor = germanName.flavor_text_entries[33].flavor_text
-            cards.push([index, name, sprite, type, stats, size, flavor, pokeCry, germanTypeOne, germanTypeTwo, ])
-        }
-        else {
-            let stats = detailedInfoJson.stats
-            let size = detailedInfoJson.height
-            let flavor = germanName.flavor_text_entries[33].flavor_text
-            cards.push([index, name, sprite, type, stats, size, flavor, pokeCry, germanTypeOne,])
+
+        if (type.length === 2) {
+            let germanTypeTwo = getGermanType(type[1].type.name);
+            cards.push([cards.length, name, sprite, type, stats, size, flavor, pokeCry, germanTypeOne, germanTypeTwo]);
+        } else {
+            cards.push([cards.length, name, sprite, type, stats, size, flavor, pokeCry, germanTypeOne]);
         }
     }
 }
@@ -110,10 +104,10 @@ function getGermanType(type) {
 
 }
 
-async function fetchPokeDetails(index) {
-    let detailedInfo = await fetch(pokeListJson.results[index].url);
+async function fetchPokeDetailsFromUrl(url) {
+    let detailedInfo = await fetch(url);
     detailedInfoJson = await detailedInfo.json();
-    return detailedInfoJson
+    return detailedInfoJson;
 }
 
 async function fetchDeepestInfoJson() {
@@ -122,28 +116,7 @@ async function fetchDeepestInfoJson() {
     return germanName
 }
 
-// version 2:
-
-// async function fetchPokemon(pokeListJson, start) {
-//     let cardsPromise = pokeListJson.results.map(async(singlePkm, index) => {
-//         let detailedInfo = await fetch(pokeListJson.results[index].url);
-//         detailedInfoJson = await detailedInfo.json();
-//         let deepestInfo = await fetch(detailedInfoJson.species.url);
-//         let germanName = await deepestInfo.json()
-//         return[
-//             detailedInfoJson.sprites.other["official-artwork"].front_default,
-//             germanName.names["5"].name,
-//             detailedInfoJson.types,
-//             detailedInfoJson.stats,
-//             detailedInfoJson.height,
-//             germanName.flavor_text_entries[33].flavor_text,
-//         ];
-//     });
-//     cards = await Promise.all(cardsPromise);
-//     }
-
-
-function renderPokemon(start, filter) {
+function renderPokemon(start) {
     let contentRef = document.getElementById("card_content")
     for (let i = start; i< cards.length; i++) {
         let index = cards[i][0]
@@ -175,28 +148,6 @@ function renderPokemon(start, filter) {
             continue
         }
     }
-}
-
-function enableFilter() {
-    document.getElementById("name_filter").removeAttribute("disabled")
-    document.getElementById("responsive_filter_button").removeAttribute("disabled")
-    document.getElementById("checkbox_normal").removeAttribute("disabled")
-    document.getElementById("checkbox_fire").removeAttribute("disabled")
-    document.getElementById("checkbox_water").removeAttribute("disabled")
-    document.getElementById("checkbox_grass").removeAttribute("disabled")
-    document.getElementById("checkbox_electric").removeAttribute("disabled")
-    document.getElementById("checkbox_ice").removeAttribute("disabled")
-    document.getElementById("checkbox_fighting").removeAttribute("disabled")
-    document.getElementById("checkbox_poison").removeAttribute("disabled")
-    document.getElementById("checkbox_ground").removeAttribute("disabled")
-    document.getElementById("checkbox_flying").removeAttribute("disabled")
-    document.getElementById("checkbox_psychic").removeAttribute("disabled")
-    document.getElementById("checkbox_bug").removeAttribute("disabled")
-    document.getElementById("checkbox_rock").removeAttribute("disabled")
-    document.getElementById("checkbox_ghost").removeAttribute("disabled")
-    document.getElementById("checkbox_dragon").removeAttribute("disabled")
-
-
 }
 
 function nameFilter() {
@@ -232,7 +183,7 @@ function toggleFilter(type) {
     }
     
     if (!status_filter) {
-        let index = filter.indexOf(type[1].name);
+        let index = filter.indexOf(type);
         filter.splice(index, 1)
         document.getElementById("card_content").innerHTML = ""
         renderPokemon(0)
@@ -248,20 +199,17 @@ function toggleOverlay(element) {
     contentRef = document.getElementById("overlay")
     contentRef.classList.toggle("d_none")
     document.getElementById("body").classList.toggle("loading")
-    if (!contentRef.classList.contains("d_none")) {
-        console.log(element.id);
-        
+    if (!contentRef.classList.contains("d_none")) {        
         index = element.id.slice(5);
         renderOverlayWindow(index)
-        
     }
 }
 
 function renderOverlayWindow(index) {
     if (index == -1) {
-        index = 150
+        index = cards.length -1
     }
-    if (index == 151) {
+    if (index > cards.length-1) {
         index = 0
     }
     contentRef = document.getElementById("overlay_window")
@@ -275,6 +223,14 @@ function renderOverlayWindow(index) {
     contentRef.innerHTML += getOverlayWindowHTML(indexNumber, name, sprite, type, stats, flavor)
 }
 
+function getGerFlavorText(germanName) {
+    for (i = 0; i < germanName.flavor_text_entries.length; i++) {
+        if (germanName.flavor_text_entries[i].language.name == "de") {
+            return germanName.flavor_text_entries[i].flavor_text
+        }
+    }
+}
+
 function toggleFilterMenu() {
     document.getElementById("responsive_filter_div").classList.toggle("d_none")
 }
@@ -283,4 +239,11 @@ function playCry(indexNumber) {
     let audio = document.getElementById(`cry_${indexNumber}`);
     audio.currentTime = 0;
     audio.play();
+}
+
+async function loadMore() {
+    let start = cards.length;
+    let amount = 20;
+    await pokeData(start, amount);
+    renderPokemon(start);
 }
