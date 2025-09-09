@@ -9,7 +9,6 @@ body {
 footer {
     height: 100px;
     background-color: #2c2c2c;
-    margin-top: 24px;
     display: flex;
     justify-content: center;
 }
@@ -69,7 +68,7 @@ main {
     justify-content: center;
     background-image: url(../assets/img/main_background.png);
     background-size: contain;
-
+    min-height: calc(100vh - 218.167px);
 }
 
 #filter_div {
@@ -205,6 +204,7 @@ h3 {
     cursor: pointer;
     align-self: center;
     margin-top: 24px;
+    margin-bottom: 24px;
 }
 
 .poke_card {
@@ -659,7 +659,7 @@ h3 {
 }
 
 .videocontrols {
-border-radius: 16px;
+    border-radius: 16px;
 }
 
 #arrow_left {
@@ -1016,6 +1016,10 @@ border-radius: 16px;
     position: relative;
     left: 220px;
     bottom: 50px;
+}
+
+#button_load_more_div {
+    align-self: center;
 }
 
 @media (max-width: 1275px) {

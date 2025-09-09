@@ -124,7 +124,9 @@ function renderPokemon(start) {
 
         let nameMatches = currentNameSearch.length < 3 
             || name.toLowerCase().includes(currentNameSearch.toLowerCase())
-
+        if (currentNameSearch.length >= 3) {
+                        document.getElementById("button_load_more_div").innerHTML = "";
+        }
         if (nameMatches) {
             let sprite = cards[i][2]
             let pokeCry = cards[i][7]
