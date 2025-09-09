@@ -118,34 +118,31 @@ async function fetchDeepestInfoJson() {
 
 function renderPokemon(start) {
     let contentRef = document.getElementById("card_content")
-    for (let i = start; i< cards.length; i++) {
+    for (let i = start; i < cards.length; i++) {
         let index = cards[i][0]
         let name = cards[i][1]
-        if (name.toLowerCase().includes(currentNameSearch.toLowerCase()) || currentNameSearch == "") {
+
+        let nameMatches = currentNameSearch.length < 3 
+            || name.toLowerCase().includes(currentNameSearch.toLowerCase())
+
+        if (nameMatches) {
             let sprite = cards[i][2]
             let pokeCry = cards[i][7]
             let type = cards[i][3]
+
             if (!filter || filter.length === 0 || filter.includes(type[0].type.name) || filter.includes(type[1]?.type.name)) {
                 let stats = cards[i][4]
                 let type1 = cards[i][8]
+                let size = cards[i][5]
+                size = determinSpriteSize(size)
+
                 if (cards[i].length == 7) {
-                    let size = cards[i][5]
-                    size = determinSpriteSize(size)
-                    contentRef.innerHTML += getPokeHTML(index, name, sprite, type, stats, size, type1,)
-                }
-                else {
+                    contentRef.innerHTML += getPokeHTML(index, name, sprite, type, stats, size, type1)
+                } else {
                     let type2 = cards[i][9]
-                    let size = cards[i][5]
-                    size = determinSpriteSize(size)
                     contentRef.innerHTML += getPokeHTML(index, name, sprite, type, stats, size, type1, type2)
                 }
             }
-            else {
-                continue
-            }
-        }
-        else {
-            continue
         }
     }
 }
